@@ -21,8 +21,15 @@ path('login/', TokenObtainPairView.as_view()),
 path('refresh/', TokenRefreshView.as_view()),
 path('user/', views.UserCreateView.as_view()),
 path('user/<int:pk>/', views.UserDetailView.as_view()),
-path('', views.templates.add,name='add'),
-path('xd/', views.templates.xd,name='add'),
+path('userCreate/', views.templates.singup,name='add'),
+path('userlogin/', views.templates.login,name='login'),
+path('user/home/', views.templates.loginHome,name='loginHome'),
+path('Categoria/', views.CategoriasView.as_view()),
+path('Categoria/<int:pk>/', views.CategoriasView.as_view()),
+path('Subcategoria/', views.CategoriasView.as_view()),
+path('Subcategoria/<int:pk>/', views.CategoriasView.as_view()),
 
+path('Productos/', views.ProductosView.as_view()),
+path('Productos/<int:pk>/', views.ProductosView.as_view()),
 
 ]

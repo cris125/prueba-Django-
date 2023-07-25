@@ -1,17 +1,38 @@
+from agenciaApp.models.user import User
 from rest_framework import status, views
+from django.shortcuts import redirect
+from django.contrib import messages
 from rest_framework.response import Response
-from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_simplejwt.tokens import RefreshToken
 from agenciaApp.serializers.userSerializer import UserSerializer
+from django.http import HttpResponseRedirect
 class UserCreateView(views.APIView):
-    
+
     def post(self, request, *args, **kwargs):
         serializer = UserSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
-        tokenData = {"username":request.data["username"],
-        "password":request.data["password"]}
-        tokenSerializer = TokenObtainPairSerializer(data=tokenData)
-        tokenSerializer.is_valid(raise_exception=True)
-        
-        return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED)
-  
+
+        # Check if the user already exists
+        username = request.data.get("username")
+        if User.objects.filter(username=username).exists():
+            messages.warning(request, "El usuario ya existe.")
+            
+        else:
+            user = serializer.save()
+
+            # Generate the JWT token for the user
+            refresh = RefreshToken.for_user(user)
+            token_data = {
+                'refresh': str(refresh),
+                'access': str(refresh.access_token),
+            }
+
+            # Add the token data to the response for automatic authentication
+            response_data = {
+                'message': 'Usuario creado exitosamente.',
+                'token': token_data,
+            }
+
+            return Response(response_data)
+
+        return HttpResponseRedirect('/user/home/')

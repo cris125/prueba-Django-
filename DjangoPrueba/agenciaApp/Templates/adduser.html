@@ -2,7 +2,7 @@
 {% extends "./index.html"%} 
 {% block title %} Agregar Inventarios {% endblock %}
 <head>
-   
+ 
 </head>
 <body>
   
@@ -17,7 +17,7 @@
 </div>
 <div class="nuevoP">
     <h1>Agregar Productos</h1>
-    <form  method="get" action="xd/"  >{% csrf_token %}
+    <form  method="post" action="/user/"  >{% csrf_token %}
       <input type="text" id="name" name="name" class="Btname" placeholder="name" required>
       <input type="text" id="username" name="username" class="Btname" placeholder="usuarios" required>
       <input type="email" id="email" name="email" class="Btname" placeholder="email" required>
