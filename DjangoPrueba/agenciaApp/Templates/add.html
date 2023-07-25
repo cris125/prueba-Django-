@@ -1,0 +1,36 @@
+
+{% extends "./index.html"%} 
+{% block title %} Agregar Inventarios {% endblock %}
+<head>
+   
+</head>
+<body>
+  
+  
+  {% block body %}
+  <div class="tabla">
+    <h1>listado de Productos</h1>
+    <table class="table" >
+        <h1>crear User</h1>
+       
+    </table>
+</div>
+<div class="nuevoP">
+    <h1>Agregar Productos</h1>
+    <form  method="get" action="xd/"  >{% csrf_token %}
+      <input type="text" id="name" name="name" class="Btname" placeholder="name" required>
+      <input type="text" id="username" name="username" class="Btname" placeholder="usuarios" required>
+      <input type="email" id="email" name="email" class="Btname" placeholder="email" required>
+      <input type="password" id="password" name="password" class="Btname" placeholder="password" required>
+      
+      <button type="submit">Guardar</button>
+
+    </form>
+   
+    {% endblock %}
+</div>  
+</body>
+    
+    
+        
+        

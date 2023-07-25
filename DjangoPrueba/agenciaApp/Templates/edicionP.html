@@ -1,0 +1,22 @@
+
+{% extends "./index.html"%} 
+{% block title %} Agregar Inventarios {% endblock %}
+<head>
+   
+</head>
+<body>
+  
+  {% block body %}
+    <div class="nuevoP">
+    <h1>Edicion Producto</h1>
+    <form  method="post" action="/editarP/{{producto.id}}"  >{% csrf_token %}
+      <input type="text" id="nameT" name="nameT" class="Btname" placeholder="Nombre Producto" value="{{producto.name}}" required>
+      <input type="number" id="priceT" name="priceT" class="Btprice" placeholder="Precio Producto" value="{{producto.price}}" required>
+      <input type="number" id="existenceT" name="existenceT" class="Btexistence" placeholder="Existencias del Producto" value="{{producto.existence}}" required>
+      <button type="submit">Guardar</button>
+
+    </form>
+    </div>
+    {% endblock %}
+   
+</body>
