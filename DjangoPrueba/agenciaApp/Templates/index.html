@@ -5,6 +5,9 @@
   <head>
     
     <style>
+      label{
+        
+      }
       body{
         background-color: rgb(229, 240, 255);
           display: flex;
@@ -48,6 +51,9 @@
         margin: 1em;
       }h1{
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .pq{
+       font-size: small;
       }
     /* contenido */
     table{
@@ -108,21 +114,63 @@
     .EdEltb:hover{
       background-color: rgba(102, 102, 240, 0.911);
     }
-    </style>
+    ul {
+  list-style: none;
   
+  margin: 0;
+  padding: 0;
+    }
+
+    li {
+      display: inline-block;
+      padding: 10px;
+      
+    }
+
+    .left {
+      float: left;
+    }
+
+    .right {
+      float: right;
+      
+    }
+    nav{
+      background-color: rgba(0, 0, 0, 0.623);
+      width: 100%;
+    }
+    .nav{
+      background-color: transparent;
+      color: white;
+    }
+    .botones{
+        padding: 50px;
+        display: block;
+        
+      }
+    .contnedosBt{
+      display: flex;
+    }
+    .qw{
+            background-color: aliceblue;
+            padding:1.5em;
+            border-radius: 2px;
+            border-style: solid;
+            border-color: rgb(0, 0, 0);
+            font-size: small;
+        }
+    </style>
+    
     
   </head>
   <body>
-    <div class="head"> 
-      <nav >
-          <ul class="list">
-              <li class="nav-item">
-                <a class="" href="/">Home</span></a>
-              </li>
-          </ul>
-
+    <nav>
+      <ul>
+        <li class="left"><a class="nav" href="/userlogin/">Home</a></li>
+        <li class="right"><a class="nav" href="/userlogin/">Login</a></li>
+        <li class="right"><a class="nav" href="/userCreate/">Sign up</a></li>
+      </ul>
     </nav>
-  </div>
   <article class="Cositas">
     
       

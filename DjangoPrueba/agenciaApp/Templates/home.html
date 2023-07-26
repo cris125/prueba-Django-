@@ -1,4 +1,16 @@
+{% extends "./index.html"%} 
+{% block title %} Agregar Inventarios {% endblock %}
+<head>
+    <style>
+     
+    </style>
+</head>
 <body>
-    <h1>hola</h1>
-    
+  {% block body %}
+    <div class="contnedosBt">
+      <h1><a class="botones" href="/EditCategoria/">Categorias</a></h1>
+      <h1><a class="botones" href="/EditSubcategoria/">Subcategorias</a></h1>
+      <h1><a class="botones" href="/EditProductos/">Producto</a></h1>
+    </div>
+    {% endblock %}
 </body>

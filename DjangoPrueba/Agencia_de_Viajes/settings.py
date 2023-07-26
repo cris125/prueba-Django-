@@ -75,8 +75,8 @@ SIMPLE_JWT = {
       'USER_ID_FIELD': 'id',
       'USER_ID_CLAIM': 'user_id',
 }
-
-
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/userhome/'
 ROOT_URLCONF = 'Agencia_de_Viajes.urls'
 
 TEMPLATES = [
@@ -100,14 +100,24 @@ WSGI_APPLICATION = 'Agencia_de_Viajes.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+}"""
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.posgresql_psycopg2',
+        'NAME': 'base_datos_posgres',
+        'USER':'Cris',
+        'PASSWORD':'',
+        'HOST':'localhost',
+        'PORT':'',
+    }
+}
 
 
 

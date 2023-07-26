@@ -8,15 +8,9 @@
   
   
   {% block body %}
-  <div class="tabla">
-    <h1>listado de Productos</h1>
-    <table class="table" >
-        <h1>crear User</h1>
-       
-    </table>
-</div>
+  
 <div class="nuevoP">
-    <h1>Agregar Productos</h1>
+    <h1>Nuevo usuario</h1>
     <form  method="post" action="/user/"  >{% csrf_token %}
       <input type="text" id="name" name="name" class="Btname" placeholder="name" required>
       <input type="text" id="username" name="username" class="Btname" placeholder="usuarios" required>

@@ -4,6 +4,6 @@ from agenciaApp.models.Subcategorias import Subcategorias
 class SubcategoriasSerializer(serializers.ModelSerializer):
    class Meta:
        model = Subcategorias
-       fields = ['id', 'nombre','nombreCategoria','descripción'] 
+       fields = ['id', 'nombre','descripcion'] 
     
 

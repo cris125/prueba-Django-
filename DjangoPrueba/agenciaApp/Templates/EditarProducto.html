@@ -1,0 +1,28 @@
+{% extends "./index.html"%} 
+{% block title %} Agregar Inventarios {% endblock %}
+<head>
+   
+</head>
+<body>
+  
+  {% block body %}
+    <div class="nuevoP">
+    <h1>Edicion Producto</h1>
+    <form  method="post" action="/ProductosPutGuardar/{{productos.id}}/"  >{% csrf_token %}
+       
+        <input type="text" id="nombre" class="Btname" name="nombre" value={{categoria.nombre}} required>
+          <input type="text" id="descripción" class="Btname" name="descripción"  value={{categoria.descripción}} required>
+          
+          <input type="number" id="precio" class="Btname" name="precio" required value={{categoria.precio}}>
+          <input type="number" id="subcategoria" class="Btname" name="subcategoria" required value={{categoria.subcategoria_id}}>
+
+          <input type="number" id="cantidad" class="Btname" name="cantidad"  required value={{categoria.cantidad}}>
+          
+          <input type="file" id="foto" class="Btname" name="foto" accept="image/*" value="/DjangoPrueba/images/{{categoria.foto}}" >
+        <button type="submit">Guardar</button>
+  
+      </form>
+    </div>
+    {% endblock %}
+   
+</body>

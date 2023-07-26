@@ -1,11 +1,10 @@
 from agenciaApp.models.user import User
 from rest_framework import status, views
-from django.shortcuts import redirect
-from django.contrib import messages
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from agenciaApp.serializers.userSerializer import UserSerializer
-from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
+
 class UserCreateView(views.APIView):
 
     def post(self, request, *args, **kwargs):
@@ -15,7 +14,7 @@ class UserCreateView(views.APIView):
         # Check if the user already exists
         username = request.data.get("username")
         if User.objects.filter(username=username).exists():
-            messages.warning(request, "El usuario ya existe.")
+            return Response({"message": "El usuario ya existe."}, status=status.HTTP_400_BAD_REQUEST)
             
         else:
             user = serializer.save()
@@ -33,6 +32,5 @@ class UserCreateView(views.APIView):
                 'token': token_data,
             }
 
-            return Response(response_data)
-
-        return HttpResponseRedirect('/user/home/')
+            # Redirect to the user administration page
+            return redirect('pagina_administracion_usuario')
